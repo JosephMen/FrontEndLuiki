@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
+import { RouteConfigLoadStart, Router } from '@angular/router';
 import { WebSocketService } from '../../services/web-socket.service'
 
 @Component({
@@ -9,10 +10,12 @@ import { WebSocketService } from '../../services/web-socket.service'
 })
 export class HomeComponent implements OnInit {
 
-  public nickname = new FormControl();
+  public nickname = new FormControl('', Validators.required);
+
 
   constructor(
-    private webSocketService: WebSocketService
+    private webSocketService: WebSocketService,
+    private route: Router
   ) { }
 
   ngOnInit(): void {
@@ -21,6 +24,7 @@ export class HomeComponent implements OnInit {
   save() {
     console.log(this.nickname.value);
     this.webSocketService.emit('nickname: ', this.nickname.value);
+    this.route.navigate(['menu'])
   }
 
 

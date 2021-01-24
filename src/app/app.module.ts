@@ -10,6 +10,8 @@ import { HeaderComponent } from './components/common/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { WebSocketService } from './services/web-socket.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MenuComponent } from './components/menu/menu.component';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    MenuComponent
   ],
   imports: [
     NgbModule,
@@ -26,7 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatCardModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   providers: [WebSocketService],
   bootstrap: [AppComponent]
