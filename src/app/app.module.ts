@@ -1,21 +1,32 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { MatCardModule } from '@angular/material/card';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FooterComponent } from './components/common/footer/footer.component';
+import { HeaderComponent } from './components/common/header/header.component';
+import { HomeComponent } from './components/home/home.component';
 import { WebSocketService } from './services/web-socket.service';
-import { FooterComponent } from './footer/footer.component';
-import {HeaderComponent} from './header/header.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [WebSocketService],
   bootstrap: [AppComponent]

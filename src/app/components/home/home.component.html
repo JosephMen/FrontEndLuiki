@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-block mx-auto">
+            <form class="d-block mx-auto">
+                <div class="col-sm-12 d-block center">
+                    <h1>Hola Bienvenido al juego</h1>
+                </div>
+                <div class="col-sm-12 d-block center">
+                    <label class="center" for="inpuntUsername">Ingrese un nombre de usuario:</label>
+                </div>
+                <div class="col-sm-12 d-block center">
+                    <input id="inpuntUsername" type="text" [formControl]="nickname">
+                </div>
+
+                <div class="col-sm-12 d-block center">
+                    <button (click)="save()">Ingresar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
