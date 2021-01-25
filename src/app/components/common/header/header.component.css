@@ -1,4 +1,16 @@
 .container-fluid{
-    background-color: blue;
-    color: white
+    /* background-color: blue; */
+    height: 150px;
+    Color: white;
+    background-color: turquoise;
+    font-family: SMB;
+    font-size: 30px;
+}
+.row{
+    background-color:black;
+    height: 100px;
+    -webkit-box-shadow: -1px 24px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 24px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: -1px 24px 5px 0px rgba(0,0,0,0.75);
+
 }
