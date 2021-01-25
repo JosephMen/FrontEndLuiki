@@ -12,6 +12,7 @@ import { WebSocketService } from './services/web-socket.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MenuComponent } from './components/menu/menu.component';
+import { JoinMatchComponent } from './components/join-match/join-match.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MenuComponent } from './components/menu/menu.component';
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    JoinMatchComponent
   ],
   imports: [
     NgbModule,
