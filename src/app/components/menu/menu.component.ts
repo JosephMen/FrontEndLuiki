@@ -23,6 +23,10 @@ export class MenuComponent implements OnInit {
     this.route.navigate(['joinMatch'])
   }
 
+  createRoom(){
+    this.route.navigate(['raceMaker'])
+  }
+
   seeStats() {
 
   }

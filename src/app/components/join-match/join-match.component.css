@@ -1,0 +1,23 @@
+body{
+    background-color: turquoise;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+    background-color: turquoise
+}
+.grid-enved{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 10px; 
+}
+.cont-canva{
+    background-color: cornflowerblue;
+}
+.canvas{
+    border: 3px solid black;
+}
+div:hover{
+    border : 1px solid red
+}

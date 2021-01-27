@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MenuComponent } from './components/menu/menu.component';
 import { JoinMatchComponent } from './components/join-match/join-match.component';
+import { RaceMakerComponent } from './components/race-maker/race-maker.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { JoinMatchComponent } from './components/join-match/join-match.component
     HeaderComponent,
     HomeComponent,
     MenuComponent,
-    JoinMatchComponent
+    JoinMatchComponent,
+    RaceMakerComponent
   ],
   imports: [
     NgbModule,

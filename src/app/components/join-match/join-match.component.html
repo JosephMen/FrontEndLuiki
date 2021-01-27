@@ -1,1 +1,44 @@
-<p>join-match works!</p>
+
+<div class="grid">
+    
+    <div>
+        <div class="cont-canva">
+            <canvas #miCanva1 height="250" width="200"></canvas>
+        </div>  
+        <div class="grid-enved">         
+            <button class="btn-danger" (click) = "mover({sala:0, jugador:0, posx:0,posy:-1})">Up</button>
+            <button class="btn-primary" (click) = "mover({sala:0, jugador:0, posx:0,posy:1})">Down</button>
+            <button class="btn-succes" (click) = "mover({sala:0, jugador:0, posx:-1,posy:0})">Left</button>           
+            <button class="btn-secondary" (click) = "mover({sala:0, jugador:0, posx:1,posy:0})">Right</button>           
+        </div>
+    </div>
+    <div >
+        <div class="cont-canva">
+            <canvas #miCanva2 height="250" width="200"></canvas>
+        </div> 
+        <div class="grid-enved">
+            <button class="btn-danger" (click) = "mover({sala:1, jugador:0, posx:0,posy:-1})">Up</button>
+            <button class="btn-primary" (click) = "mover({sala:1, jugador:0, posx:0,posy:1})">Down</button>
+            <button class="btn-succes" (click) = "mover({sala:1, jugador:0, posx:-1,posy:0})">Left</button>           
+            <button class="btn-secondary" (click) = "mover({sala:1, jugador:0, posx:1,posy:0})">Right</button>             
+        </div>
+        <div #containerRooms> 
+
+        </div>
+        
+    </div>
+    <div>
+        <div class="cont-canva">
+            <canvas #miCanva3 height="250" width="200"></canvas>
+        </div> 
+        <div class="grid-enved">
+            <button class="btn-danger" (click) = "mover({sala:2, jugador:0, posx:0,posy:-1})">Up</button>
+            <button class="btn-primary" (click) = "mover({sala:2, jugador:0, posx:0,posy:1})">Down</button>
+            <button class="btn-succes" (click) = "mover({sala:2, jugador:0, posx:-1,posy:0})">Left</button>           
+            <button class="btn-secondary" (click) = "mover({sala:2, jugador:0, posx:1,posy:0})">Right</button>              
+        </div>
+    </div>
+    
+    
+</div>
+

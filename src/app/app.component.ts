@@ -9,7 +9,7 @@ export class AppComponent implements OnInit {
   title = 'WebSocket';
 
   constructor(private WebSocketService: WebSocketService) {
-
+    
   }
   ngOnInit() {
     // this.WebSocketService.listen('test event').subscribe((data)=>{
