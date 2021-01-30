@@ -14,6 +14,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MenuComponent } from './components/menu/menu.component';
 import { JoinMatchComponent } from './components/join-match/join-match.component';
 import { RaceMakerComponent } from './components/race-maker/race-maker.component';
+import { EasyComponent } from './components/races/easy/easy.component';
+import { MediumComponent } from './components/races/medium/medium.component';
+import { HardComponent } from './components/races/hard/hard.component';
+
 
 
 @NgModule({
@@ -24,7 +28,11 @@ import { RaceMakerComponent } from './components/race-maker/race-maker.component
     HomeComponent,
     MenuComponent,
     JoinMatchComponent,
-    RaceMakerComponent
+    RaceMakerComponent,
+    EasyComponent,
+    MediumComponent,
+    HardComponent,
+
   ],
   imports: [
     NgbModule,
