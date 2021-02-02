@@ -24,7 +24,7 @@ export class MenuComponent implements OnInit {
   }
 
   createRoom(){
-    this.route.navigate(['raceMaker'])
+    this.route.navigate(['easyRace'])
   }
 
   seeStats() {

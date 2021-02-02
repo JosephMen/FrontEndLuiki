@@ -9,7 +9,7 @@ import {Observable, Subscriber} from 'rxjs'
 export class WebSocketService {
 
   socket: any;
-  server = "http://af4a72fce501.ngrok.io/"
+  server = "192.168.0.11"
 
   constructor() { 
     this.socket = io(this.server)

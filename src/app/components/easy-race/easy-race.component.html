@@ -1,0 +1,18 @@
+
+<div class="grid"> 
+
+    <div>  
+        <img [src]="raceTracks.easy.image">
+        <div class="overlay">
+            
+            <canvas #miCanva3 height="750" width="690"></canvas>
+        </div> 
+        <div class="grid-enved">
+            <input (keydown) = "moveCar($event)">
+            <button class="btn-primary">Down</button>
+            <button class="btn-succes">Left</button>           
+            <button class="btn-secondary">Right</button>              
+        </div>
+    </div>
+    
+</div>
