@@ -5,7 +5,7 @@ export class RaceTrack {
 
 
 public easy = {
-    image:"../../assets/images/1easy.png",
+    image:"../../assets/images/easyGrid.png",
     matrix:[
             [1,0,0,0,0,0,1],
             [1,0,0,0,0,0,1],

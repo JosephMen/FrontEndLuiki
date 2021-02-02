@@ -9,7 +9,7 @@ import {Observable, Subscriber} from 'rxjs'
 export class WebSocketService {
 
   socket: any;
-  server = "192.168.0.11"
+  server = "http://192.168.0.11:3000"
 
   constructor() { 
     this.socket = io(this.server)

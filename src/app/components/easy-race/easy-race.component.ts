@@ -15,10 +15,16 @@ export class EasyRaceComponent implements OnInit, AfterViewInit {
   public cuadrado2: any;
 
   public carro = {name:"Junior",
-                  height: 20,
-                  width: 20,
-                  posx:600,
-                  posy:600}
+                  height: 15,
+                  width: 15,
+                  posx:617,
+                  posy:401}
+
+  public carro2 = {name:"Junior",
+  height: 15,
+  width: 15,
+  posx: 637,
+  posy: 401}
                   
   public raceTracks = {
                       easy : new RaceTrack().easy,
@@ -26,43 +32,53 @@ export class EasyRaceComponent implements OnInit, AfterViewInit {
                       hard : new RaceTrack().hard
                     };
 
+  public lastDirection1 = {x:617,y:401};
+  public lastDirection2 = {x:637,y:401};
 
   constructor(private webSocket:WebSocketService) { }
 
   @HostListener('document:keydown.Shift', ['$event']) acelerar(event: KeyboardEvent){
-    console.log(this.carro)
-    this.ctx3.clearRect(this.carro.posx,this.carro.posy, 20, 20);
-    this.carro.posy -=15;
-    this.ctx3.fillRect(this.carro.posx,this.carro.posy,this.carro.width,this.carro.height);
     this.moverCarro();
   }
 
   @HostListener('document:keydown.ArrowUp', ['$event']) acelerar2(event: KeyboardEvent){
-    console.log(this.carro)
-    this.ctx3.clearRect(this.carro.posx,this.carro.posy, 20, 20);
-    this.carro.posy -=15;
-    this.ctx3.fillRect(this.carro.posx,this.carro.posy,this.carro.width,this.carro.height)   
+    this.girarCarro({x:0,y:-1})
+  }
+
+  @HostListener('document:keydown.Shift.ArrowUp', ['$event']) acelerarArriba(event: KeyboardEvent){
+    this.girarCarro({x:0,y:-1});
+    this.moverCarro();
   }
 
   @HostListener('document:keydown.ArrowRight', ['$event']) girarDerecha(event: KeyboardEvent){
-    console.log(this.carro)
-    this.ctx3.clearRect(this.carro.posx,this.carro.posy, 20, 20);
-    this.carro.posx +=15;
-    this.ctx3.fillRect(this.carro.posx,this.carro.posy,this.carro.width,this.carro.height)   
+    this.girarCarro({x:1,y:0}) ;
+  }
+
+  @HostListener('document:keydown.Shift.ArrowRight', ['$event']) acelerarGirarDerecha(event: KeyboardEvent){
+    this.girarCarro({x:1,y:0});
+    this.moverCarro();
   }
 
   @HostListener('document:keydown.ArrowLeft', ['$event']) girarIzquierda(event: KeyboardEvent){
-    console.log(this.carro)
-    this.ctx3.clearRect(this.carro.posx,this.carro.posy, 20, 20);
-    this.carro.posx -=15;
-    this.ctx3.fillRect(this.carro.posx,this.carro.posy,this.carro.width,this.carro.height)   
+    this.girarCarro({x:-1,y:0});  
+  }
+
+  @HostListener('document:keydown.Shift.ArrowLeft', ['$event']) acelerarGirarIzquierda(event: KeyboardEvent){
+    this.girarCarro({x:-1,y:0});  
+    this.moverCarro();
   }
 
   @HostListener('document:keydown.ArrowDown', ['$event']) retroceder(event: KeyboardEvent){
-    console.log(this.carro)
-    this.ctx3.clearRect(this.carro.posx,this.carro.posy, 20, 20);
-    this.carro.posy +=15;
-    this.ctx3.fillRect(this.carro.posx,this.carro.posy,this.carro.width,this.carro.height)   
+    this.girarCarro({x:0,y:1});
+  }
+
+  @HostListener('document:keydown.Shift.ArrowDown', ['$event']) acelerarRetroceder(event: KeyboardEvent){
+    this.girarCarro({x:0,y:1});
+    this.moverCarro();
+  }
+
+  @HostListener('document:keydown.Space', ['$event']) salvar(event: KeyboardEvent){
+    this.webSocket.emit('save', 1);
   }
 
   ngOnInit(): void {
@@ -83,19 +99,41 @@ export class EasyRaceComponent implements OnInit, AfterViewInit {
     this.ctx3.strokeStyle = '#000';
 
     this.ctx3.fillRect(this.carro.posx,this.carro.posy,this.carro.width,this.carro.height)
+
+    this.ctx3.fillRect(this.carro2.posx,this.carro2.posy,this.carro2.width,this.carro2.height)
+
     
-    this.webSocket.listen("movimiento").subscribe(
-      data =>{
+    this.webSocket.listen("move").subscribe((data:any) =>{
+        console.log(data);
+
+        this.ctx3.clearRect(this.lastDirection1.x,this.lastDirection1.y, this.carro.width, this.carro.height);
+        this.ctx3.fillRect(data.posx,data.posy,this.carro.width, this.carro.height);
+        this.lastDirection1.x = data.posx;
+        this.lastDirection1.y = data.posy;          
+
+      });
+
+      this.webSocket.listen("save").subscribe((data:any) => {
         console.log(data);
       });
-    };
+
+      this.webSocket.listen("pto").subscribe((data:any) => {
+        console.log(data);
+      });
+
+    }
 
   moveCar(evt:KeyboardEvent){
     console.log(evt)
   }
 
+
   moverCarro(){
-    this.webSocket.emit('movimiento','a');
+    this.webSocket.emit('move', 1);
+  }
+
+  girarCarro(dato){
+    this.webSocket.emit('turn',dato)
   }
 
   
